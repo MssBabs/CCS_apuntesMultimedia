@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apuntes_Multimedia</title>
+    <!-- Favicon: -->
+    <link rel="icon" href="img/icons8-play-games.svg" type="faviconimage/x-icon"/>
+    <!-- SCSS => CSS -->
+    <link rel="stylesheet" href="css/stileMultimedia.css" title="stileMultimedia.css">
+</head>
+<body class="fondo">
+    <header>
+        <h1 class="fontTitulo">Apuntes Multimedia</h1>
+    </header>
+
+
+
+
+    <nav class="fontNav">
+        <ul>
+            <li class=""><a href="#imgAnimacion" >Img-Animacion </a></li>
+            <li class=""><a href="#imgCanvas"    >Img-Canvas    </a></li>
+            <li class=""><a href="#imgPicture"   >Img-Picture   </a></li>
+            <li class=""><a href="#audio"        >Audio         </a></li>
+            <li class=""><a href="#video"        >Video         </a></li>
+            <li class=""><a href="#imgGaleria"   >Img-Galeria   </a></li>
+        </ul>
+    </nav>
+
+
+
+
+    <main>
+        <section id="imgAnimacion">
+            <h3 class="fontSubTitulo">Ejemplo Img. con Animacion: </h3>
+
+            <figure>
+                <img id="effectImgAnimacion" src="img/VideoGameController2_cc_0.svg" alt="Img VideoGame Controller, CC 0">
+            </figure>
+
+            <p>- Img VideoGame Controller, CC 0 -</p>
+        </section>
+
+
+        <section id="imgCanvas">
+            <h3 class="fontSubTitulo">Ejemplo Img. con Canvas: </h3>
+
+            <canvas id="lienzoCanvas">
+                Su navegador no soporta el elemento HTML5 canvas
+            </canvas>
+
+            <p>- Boceto Propio -</p>
+        </section>
+        
+
+        <section id="imgPicture">
+            <h3 class="fontSubTitulo">Ejemplo Img. con Pictore: </h3>
+
+            <picture>
+                <!-- PC -->
+                <source media="(min-width:992px)" srcset="img/mike-meyers-ip15nC1LJ0o-unsplash.jpg">
+                <!-- Tablet -->
+                <source media="(min-width:576px)" srcset="img/mike-meyers-vyFA3R96RA4-unsplash.jpg">
+                <!-- Movil (Img Base) -->
+                <img src="img/mike-meyers-v8XaVfyo41Q-unsplash.jpg" alt="img GameBoy, by: Mike Meyers, CC 0">
+            </picture>
+
+            <p>- Img GameBoy, by: Mike Meyers, CC 0 -</p>
+        </section>
+
+
+        <section id="audio">
+            <h3 class="fontSubTitulo">Ejemplo Audio: </h3>
+
+            <audio controls autoplay muted>
+                <source src="audio/rebel-mojo-main-version-01-50-19629.mp3" type="audio/mpeg">
+            </audio>
+
+            <p>- Audio Rebel mojo, CC 0 -</p>
+        </section>
+
+        
+        <section id="video">
+            <h3 class="fontSubTitulo">Ejemplo Video & Portada: </h3>
+
+            <video controls loop poster="img/lorenzo-herrera-p0j-mE6mGo4-unsplash.jpg">
+                <source src="video/playingGameControlle_byIvanNikolaevAtanasov_ArtgridHD.mp4" type="video/mp4">
+            </video>
+
+            <p>- Portada Video: Retro Game, by: lorenzo herrera, CC 0 -</p>
+            <p>- Video: Playing Game Controlle, by: Ivan Niko laev Atanasov, CC 0 -</p>
+        </section>
+
+
+        <section id="imgGaleria">
+            <h3 class="fontSubTitulo">Img. Galeria: </h3>
+
+            <div id="contenedorSlideshow">
+                <div class="Slides fade">
+                    <div class="numText">1 / 3</div>
+                    <img src="img/sp2_cc_BY-NC_PatrickBrosset.jpg" alt="Img Space Invaders, by: PatrickBrosset, CC BY_NC">
+                    <div class="text">- Space Invaders, by: Patrick Brosset, CC BY_NC -</div>
+                </div>
+                
+                <div class="Slides fade">
+                    <div class="numText">2 / 3</div>
+                    <img src="img/sp_cc_BY-NC_PatrickBrosset.jpg"  alt="Img Space Invaders, by: PatrickBrosset, CC BY_NC">
+                    <div class="text">- Space Invaders, by: Patrick Brosset, CC BY_NC -</div>
+                </div>
+
+                <div class="Slides fade">
+                    <div class="numText">3 / 3</div>
+                    <img src="img/sp3_cc_BY-NC_PatrickBrosset.jpg" alt="Img Space Invaders, by: PatrickBrosset, CC BY_NC">
+                    <div class="text">- Space Invaders, by: Patrick Brosset, CC BY_NC -</div>
+                </div>
+
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div><br>
+
+            <div id="contenedorElementos">
+                <span class="punto" onclick="currentSlide(1)"></span>
+                <span class="punto" onclick="currentSlide(2)"></span>
+                <span class="punto" onclick="currentSlide(3)"></span>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <h4>&copy; Bárbara Vela Nora</h4>
+    </footer>
+
+
+
+
+
+
+    <!-- SCRIPT JS CANVAS -->
+    <script>
+
+        /********      IMG CANVAS       ********/
+        function comenzar(){
+            var elemento= document.getElementById("lienzoCanvas");
+
+            lienzoCanvas= elemento.getContext("2d");
+
+            /* Cuadrado dentro del lienzoCanvas: */
+            lienzoCanvas.fillStyle="#80ffd4";
+            lienzoCanvas.fillRect(55, 15, 115, 115);
+            
+
+            /*Borrar areas interiores del Cuadrado*/
+            lienzoCanvas.clearRect(65, 25, 55, 55);
+            lienzoCanvas.clearRect(145, 105, 15, 15);
+        }
+
+        window.addEventListener("load", comenzar, false);
+
+
+
+
+        /********      IMG GALERY       ********/
+        var slideIndex = 1;
+
+
+        showSlides(slideIndex);
+    
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+    
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+    
+        function showSlides(n){
+            var i;
+            var slides = document.getElementsByClassName("Slides");
+            var dots   = document.getElementsByClassName("punto");
+    
+
+            if(n > slides.length){
+                slideIndex = 1
+            }
+
+            if(n < 1){
+                slideIndex = slides.length
+            }
+
+            for(i= 0; i<slides.length; i++){
+                slides[i].style.display= "none";
+            }
+
+            for (i= 0; i < dots.length; i++){
+                dots[i].className= dots[i].className.replace(" active", "");
+            }
+
+
+            slides[slideIndex-1].style.display  = "block";
+            dots[slideIndex-1].className       += "active";
+        }
+    </script>
+</body>
+</html>

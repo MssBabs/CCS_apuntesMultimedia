@@ -1,0 +1,283 @@
+/* Fuentes */ 
+@font-face{
+    font-family: "GameOfSquids";
+    src: url("../fonts/GameOfSquids/GameOfSquids.otf");
+}
+.fontTitulo{
+    font-family: "GameOfSquids";
+    font-size: 4rem;
+    text-align: center;
+    color: #d2faed;
+    text-shadow: 0 0 20px #80ffd4;
+}
+.fontSubTitulo{
+    font-family: "GameOfSquids";
+    font-size: 1.25rem;
+    text-align: center;
+    color: #80ffd4;
+}
+.fontNav{
+    font-family: "GameOfSquids";
+    font-size: 0.55rem;
+}
+
+
+
+
+body{
+    display: grid;
+    gap: 1rem;
+    grid-gap:2rem;
+    grid-template-columns: repeat(auto-fit, minmax(calc(min(100%, 25rem)), 1fr));
+
+    grid-template-areas:    "header     header     header"
+                            "nav        nav        nav"
+                            "main       main       main"
+                            "main       main       main"
+                            "main       main       main"
+                            "footer     footer     footer";
+    
+    background-color: #111111;
+    color: #d2faed;
+    font-family: monospace;
+    font-size: smaller;
+
+    header{
+        grid-area: header;
+        
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    nav{
+        grid-area: nav;
+        
+        text-align: center;
+        list-style: none;
+        ul {
+            list-style-type: none;
+            gap: 2rem;
+            display: inline-flex;
+            flex-wrap: wrap;
+        }
+        li{ 
+            padding: 0.40rem;
+    
+            a{
+                color: #d2faed;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                display: block;
+                font-size: 1rem;
+                }
+            a:hover {
+                color: #0ee6b0;  
+                text-shadow: 0 0 12px #80ffd4;
+            }
+        }
+    }
+
+
+    main{
+        display: grid;
+        gap: 1rem;
+        padding: 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(calc(min(100%,25rem)),1fr));
+        grid-area: main;
+ 
+      
+        section{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #imgAnimacion{
+            #effectImgAnimacion{
+                animation-duration: 5s;
+                animation-name: effectImgAnimacion;
+                animation-iteration-count: infinite;
+            }
+            
+            @keyframes effectImgAnimacion{
+                from{
+                    -webkit-transform: rotate(0deg);
+                    transform: rotateY(0deg);
+                }
+
+                50%{
+                    -webkit-transform: rotate(180deg);
+                    transform: rotateY(180deg);
+                } 
+
+                to {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotateY(360deg);
+                }
+            }
+        }
+
+
+        #imgCanvas{
+            #lienzoCanvas{
+                border: 0.25rem;
+                border-radius: 2rem;
+
+                background-color: #424242;
+            }
+        }
+
+
+        #imgPicture{
+            picture{
+                position: relative;
+                margin: auto;
+
+                img{
+                    width: 100%;
+                    border-radius: 2rem;
+                }
+            }
+        }
+
+
+        #audio{
+            audio{
+                width: 24rem;
+                margin: 2rem auto;
+                padding: 0.25rem;
+                background: #80ffd4;
+                border-radius: 4rem;
+            }   
+        }
+
+
+        #video{
+            video{
+                width: 24rem;
+                margin: 2rem auto;
+                padding: 0.25rem;
+                background: #80ffd4;
+                border-radius: 2rem;
+            }
+        }
+
+
+        #imgGaleria{
+            *{
+                box-sizing:border-box;
+                border-radius: 1rem;
+            }
+
+            #contenedorSlideshow{
+                max-width: 1000px;
+                position: relative;
+                margin: auto;
+
+                .Slides {
+                    display: none;
+                }
+
+                img{
+                    width:100%
+                }
+            }
+
+            .prev, .next{
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                width: auto;
+                margin-top: -22px;
+                padding: 16px;
+                color: #80ffd4;
+                font-weight: bold;
+                font-size: 18px;
+                transition: 0.6s ease;
+                border-radius: 0 3px 3px 0;
+                user-select: none;
+            }
+
+            .next{
+                right: 0;
+                border-radius: 3px 0 0 3px;
+            }
+
+            .prev:hover, .next:hover{
+                background-color: rgba(0,0,0,0.8);
+            }
+
+            .text{
+                color: #80ffd4;
+                font-size: 15px;
+                padding: 8px 12px;
+                position: absolute;
+                bottom: 8px;
+                width: 100%;
+                text-align: center;
+                background-color: rgba(0,0,0,0.5);
+            }
+
+            .numText{
+                color: #80ffd4;
+                font-size: 12px;
+                padding: 8px 12px;
+                position: absolute;
+                top: 0;
+            }
+
+            .punto{
+                cursor: pointer;
+                height: 15px;
+                width: 15px;
+                margin: 0 2px;
+                background-color: #bbb;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+            }
+
+            .active, .punto:hover{
+                background-color: #717171;
+            }
+
+            .fade{
+                -webkit-animation-name: fade;
+                -webkit-animation-duration: 1.5s;
+                animation-name: fade;
+                animation-duration: 1.5s;
+            }
+
+            @-webkit-keyframes fade{
+                from{ opacity: .4}
+                to{ opacity: 1}
+            }
+
+            @keyframes fade{
+                from{opacity: .4}
+                to{opacity: 1}
+            }
+
+            #contenedorElementos{
+                text-align:center;
+            }
+        }
+    }
+
+
+    footer{
+        grid-area: footer;
+
+        display: flex;
+        align-self: flex-end;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 2.5rem;
+
+        color: #80ffd4;
+        font-family: monospace;
+        font-size: medium;
+    }
+}
